@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presets xmlns="http://josm.openstreetmap.de/tagging-preset-1.0"
+	author="Simon Poole" version="0.0.0" shortdescription="NCA preset"
+	description="Telecom preset for New Cloud Atlas">
+	<!-- Format description: https://josm.openstreetmap.de/wiki/TaggingPresets -->
+
+	<chunk id="nca_cables">
+		<combo key="cables" text="Number of cables" values="1,2,3"
+			editable="true" match="key" />
+	</chunk>
+	<chunk id="nca_medium">
+		<combo key="telecom:medium" text="Type of physical medium"
+			values="copper,fibre_optic" display_values="Copper,Fibre Optic" />
+	</chunk>
+	<chunk id="nca_location">
+		<combo key="location" text="Location of object" values="underground,underwater,overground"
+			display_values="Underground,Underwater,Overground" />
+	</chunk>
+	<chunk id="nca_operator_ref">
+		<text key="operator" text="Operator" />
+		<text key="ref" text="Ref" />
+	</chunk>
+
+	<group name="New Cloud Atlas" name_context="preset group" icon="">
+		<item name="Telephone line" icon="" type="way">
+			<key key="communication" value="line" />
+			<reference ref="nca_operator_ref" />
+			<reference ref="nca_medium" />
+			<reference ref="nca_cables" />
+			<reference ref="nca_location" />
+			<text key="note" text="Note" />
+		</item> <!-- Telephone line -->
+		<item name="Underground cable" icon="" type="way">
+			<key key="communication" value="line" />
+			<key key="location" value="underground" />
+			<reference ref="nca_operator_ref" />
+			<reference ref="nca_medium" />
+			<reference ref="nca_cables" />
+			<text key="note" text="Note" />
+		</item> <!-- Underground cable -->
+		<item name="Submarine cable" icon="" type="way">
+			<key key="communication" value="line" />
+			<key key="location" value="underwater" />
+			<reference ref="nca_operator_ref" />
+			<reference ref="nca_medium" />
+			<reference ref="nca_cables" />
+			<text key="note" text="Note" />
+		</item> <!-- Submarine cable -->
+		<item name="Telephone pole" icon="" type="node">
+			<key key="communication" value="pole" />
+			<key key="telephone" value="pole" />
+			<reference ref="nca_operator_ref" />
+			<reference ref="nca_cables" />
+			<text key="note" text="Note" />
+		</item> <!-- Telephone pole -->
+		<item name="Street cabinet" icon="" type="node,closedway">
+			<key key="man_made" value="street_cabinet" />
+			<key key="street_cabinet" value="telecom" />
+			<combo key="communication_dslam" text="DSLAM type" values="outdoor_dslam,remote_terminal,bts"
+				display_values="Outdoor DSLAM,Remote terminal,BTS" />
+			<reference ref="nca_operator_ref" />
+			<combo key="colour" text="Colour" values="green,white" editable="true" match="key" />
+    		<check key="sound" text="Does it make a sound?" disable_off="true" />
+    		<check key="heat" text="Heat (feeling of warmth)" disable_off="true" />
+			<text key="texture" text="Texture of surface" />
+			<text key="note" text="Note" />
+		</item> <!-- Street cabinet -->
+		<item name="Manhole cover" icon="" type="node,closedway">
+			<key key="manhole" value="telecom" />
+			<reference ref="nca_operator_ref" />
+			<text key="label" text="Label displayed" />
+			<combo key="colour" text="Colour" values="green,white" editable="true" match="key" />
+			<text key="note" text="Note" />
+		</item> <!-- Manhole cover -->
+		<item name="Antenna" icon="" type="node,closedway">
+			<key key="telecom" value="antenna" />
+			<check key="communicaton:mobile_phone" text="Mobile phone" disable_off="true" />
+			<reference ref="nca_operator_ref" />
+			<reference ref="nca_location" />
+			<text key="height" text="Height" />
+			<text key="note" text="Note" />
+		</item> <!-- Antenna -->
+		<item name="Mast" icon="" type="node,closedway">
+			<key key="man_made" value="mast" />
+			<key key="mast:type" value="communication" />
+			<check key="communicaton:mobile_phone" text="Mobile phone" disable_off="true" />
+			<check key="communicaton:radio" text="Radio" disable_off="true" />
+			<check key="communicaton:microwave" text="Microwave" disable_off="true" />
+			<check key="communicaton:television" text="Television" disable_off="true" />
+			<check key="communicaton:wifi" text="Wifi" disable_off="true" />
+			<reference ref="nca_operator_ref" />
+			<reference ref="nca_location" />
+			<text key="height" text="Height" />
+			<text key="note" text="Note" />
+		</item> <!-- Mast -->
+		<item name="Telecoms tower" icon="" type="node,closedway">
+			<key key="man_made" value="tower" />
+			<key key="tower:type" value="communication" />
+			<check key="communicaton:mobile_phone" text="Mobile phone" disable_off="true" />
+			<check key="communicaton:radio" text="Radio" disable_off="true" />
+			<check key="communicaton:microwave" text="Microwave" disable_off="true" />
+			<check key="communicaton:television" text="Television" disable_off="true" />
+			<check key="communicaton:wifi" text="Wifi" disable_off="true" />
+			<reference ref="nca_operator_ref" />
+			<reference ref="nca_location" />
+			<text key="height" text="Height" />
+			<text key="note" text="Note" />
+		</item> <!-- Telecoms tower -->
+		<item name="Large telecoms tower" icon="" type="node,closedway">
+			<key key="man_made" value="communications_tower" />
+			<key key="tower:type" value="communication" />
+			<check key="communicaton:mobile_phone" text="Mobile phone" disable_off="true" />
+			<check key="communicaton:radio" text="Radio" disable_off="true" />
+			<check key="communicaton:microwave" text="Microwave" disable_off="true" />
+			<check key="communicaton:television" text="Television" disable_off="true" />
+			<check key="communicaton:wifi" text="Wifi" disable_off="true" />
+			<reference ref="nca_operator_ref" />
+			<reference ref="nca_location" />
+			<text key="height" text="Height" />
+			<text key="note" text="Note" />
+		</item> <!-- Large telecoms tower -->
+		<item name="Telephone exchange / Central office" icon="" type="node,closedway">
+			<key key="telecom" value="central_office" />
+			<key key="building" value="central_office" />
+			<text key="name" text="Name" />
+			<text key="operator" text="Operator" />
+			<preset_link preset_name="Addresses" /> <!--  assumes default preset has this -->
+			<text key="note" text="Note" />
+		</item> <!-- Telephone exchange / Central office -->
+		<item name="Data center" icon="" type="node,closedway">
+			<key key="telecom" value="data_center" />
+			<key key="building" value="data_center" />
+			<text key="name" text="Name" />
+			<text key="operator" text="Operator" />
+			<preset_link preset_name="Addresses" /> <!--  assumes default preset has this -->
+			<text key="note" text="Note" />
+		</item> <!-- Data center -->
+		<item name="Telecom office" icon="" type="node,closedway">
+			<key key="office" value="telecommunication" />
+			<text key="name" text="Name" />
+			<text key="operator" text="Operator" />
+			<preset_link preset_name="Addresses" /> <!--  assumes default preset has this -->
+			<text key="note" text="Note" />
+		</item> <!-- Telecom office -->
+	</group> <!-- New Cloud Atlas -->
+</presets>
